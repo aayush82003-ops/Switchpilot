@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>SwitchPilot</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<header>
+  <div><h1>SwitchPilot</h1><p>Universal Network Switch Manager</p></div>
+  <button class="icon" onclick="openAdd()">＋</button>
+</header>
+
+<main id="view"></main>
+
+<nav>
+ <button data-page="dashboard" class="active">⌂<span>Dashboard</span></button>
+ <button data-page="devices">▣<span>Devices</span></button>
+ <button data-page="alerts">⚠<span>Alerts</span></button>
+ <button data-page="settings">⚙<span>Settings</span></button>
+</nav>
+</div>
+
+<div id="modal" class="modal hidden">
+ <div class="sheet">
+  <div class="sheetHead"><h2>Add Switch</h2><button class="icon" onclick="closeModal()">×</button></div>
+  <label>Name<input id="swName" placeholder="Office Core Switch"></label>
+  <label>Brand<select id="swBrand"><option>TP-Link</option><option>Cisco</option><option>Hikvision</option><option>Ubiquiti</option><option>HPE / Aruba</option><option>D-Link</option><option>Netgear</option><option>Generic SNMP</option></select></label>
+  <label>Model<input id="swModel" placeholder="TL-SG3428XMP"></label>
+  <label>IP Address<input id="swIP" placeholder="192.168.1.10"></label>
+  <label>Protocol<select id="swProtocol"><option>SNMP</option><option>REST API</option><option>SSH</option><option>NETCONF</option></select></label>
+  <button class="primary" onclick="addSwitch()">Add Switch</button>
+  <p class="hint">Demo mode is enabled until a real backend/API adapter is connected.</p>
+ </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
